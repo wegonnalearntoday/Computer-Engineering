@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -21,7 +21,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html, body {
       margin: 0;
       padding: 0;
@@ -31,10 +30,7 @@
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
     }
-
-    body {
-      min-height: 100vh;
-    }
+    body { min-height: 100vh; }
 
     header {
       background: linear-gradient(90deg, var(--red), var(--green), var(--yellow), var(--black));
@@ -83,22 +79,20 @@
       padding: 20px;
     }
 
-    .player-panel, .scoreboard, .rotation-panel {
+    .player-panel, .scoreboard {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 14px;
       margin-bottom: 18px;
     }
 
-    .panel-card, .score-card, .leaderboard, .footer-box, .station-card, .sound-panel {
+    .panel-card, .score-card, .leaderboard, .footer-box, .station-card {
       background: var(--white);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
 
-    .panel-card, .sound-panel {
-      padding: 16px;
-    }
+    .panel-card, .leaderboard, .footer-box, .station-card { padding: 16px; }
 
     .panel-title {
       font-size: 0.95rem;
@@ -115,17 +109,10 @@
     .score-card:nth-child(2) { border-top-color: var(--red); }
     .score-card:nth-child(3) { border-top-color: var(--yellow); }
     .score-card:nth-child(4) { border-top-color: var(--black); color: white; background: #222; }
+    .score-card:nth-child(5) { border-top-color: #555; }
 
-    .score-label {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .score-value {
-      font-size: 1.8rem;
-      font-weight: 800;
-    }
+    .score-label { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+    .score-value { font-size: 1.8rem; font-weight: 800; }
 
     .station-grid {
       display: grid;
@@ -134,13 +121,9 @@
       margin-bottom: 22px;
     }
 
-    /* Make Algorithm Race span full width */
-    #station-algorithm {
-      grid-column: span 2;
-    }
+    #station-algorithm { grid-column: span 2; }
 
     .station-card {
-      padding: 18px;
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -155,17 +138,8 @@
       box-shadow: 0 14px 30px rgba(0,0,0,0.18);
     }
 
-    .station-title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      margin: 0;
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .station-title { font-size: 1.15rem; font-weight: 800; margin: 0; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
 
     .tag {
       font-size: 0.78rem;
@@ -209,7 +183,7 @@
       font-size: 0.95rem;
     }
 
-    textarea, input[type="text"], select {
+    textarea, input[type="text"] {
       width: 100%;
       padding: 14px;
       border: 2px solid #d4d4d4;
@@ -220,16 +194,8 @@
       min-height: 48px;
     }
 
-    textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+    textarea { min-height: 110px; resize: vertical; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
 
     button {
       border: none;
@@ -237,7 +203,7 @@
       padding: 14px 18px;
       font-weight: 800;
       cursor: pointer;
-      transition: transform 0.15s ease, opacity 0.15s ease, filter 0.15s ease;
+      transition: transform 0.15s ease, opacity 0.15s ease;
       min-height: 50px;
       font-size: 0.98rem;
     }
@@ -258,34 +224,17 @@
       font-weight: 700;
       display: none;
     }
-
-    .feedback.good {
-      display: block;
-      background: #e4f7e8;
-      color: #1f5e27;
-    }
-
-    .feedback.bad {
-      display: block;
-      background: #fde6e6;
-      color: #8b1f1f;
-    }
+    .feedback.good { display: block; background: #e4f7e8; color: #1f5e27; }
+    .feedback.bad { display: block; background: #fde6e6; color: #8b1f1f; }
 
     .footer-box {
       background: #111;
       color: white;
-      padding: 18px;
       line-height: 1.6;
     }
 
-    .tiny {
-      font-size: 0.9rem;
-      opacity: 0.9;
-    }
-
-    .hidden {
-      display: none !important;
-    }
+    .tiny { font-size: 0.9rem; opacity: 0.9; }
+    .hidden { display: none !important; }
 
     .binary-options, .cyber-options {
       display: grid;
@@ -293,21 +242,9 @@
       gap: 10px;
     }
 
-    .option-btn {
-      background: #f3f3f3;
-      color: #111;
-      border: 2px solid #d8d8d8;
-    }
-
-    .option-btn.correct {
-      background: #dff5e3;
-      border-color: var(--green);
-    }
-
-    .option-btn.wrong {
-      background: #fde2e2;
-      border-color: var(--red);
-    }
+    .option-btn { background: #f3f3f3; color: #111; border: 2px solid #d8d8d8; }
+    .option-btn.correct { background: #dff5e3; border-color: var(--green); }
+    .option-btn.wrong { background: #fde2e2; border-color: var(--red); }
 
     .drag-zone-wrap {
       display: grid;
@@ -316,10 +253,7 @@
       align-items: start;
     }
 
-    .draggables, .dropzones {
-      display: grid;
-      gap: 10px;
-    }
+    .draggables, .dropzones { display: grid; gap: 10px; }
 
     .draggable {
       background: linear-gradient(135deg, #fffaf0, #ffffff);
@@ -331,11 +265,7 @@
       user-select: none;
       cursor: grab;
     }
-
-    .draggable.dragging {
-      opacity: 0.72;
-      transform: scale(1.02);
-    }
+    .draggable.dragging { opacity: 0.72; transform: scale(1.02); }
 
     .dropzone {
       background: #f8f8f8;
@@ -344,32 +274,12 @@
       padding: 14px;
       min-height: 72px;
     }
+    .dropzone.hit { border-color: var(--yellow); background: #fff9df; }
+    .dropzone.correct-zone { border-color: var(--green); background: #ecfaef; }
+    .drop-label { font-weight: 800; margin-bottom: 8px; }
 
-    .dropzone.hit {
-      border-color: var(--yellow);
-      background: #fff9df;
-    }
-
-    .dropzone.correct-zone {
-      border-color: var(--green);
-      background: #ecfaef;
-    }
-
-    .drop-label {
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .leaderboard {
-      padding: 16px;
-      margin-bottom: 18px;
-    }
-
-    .leaderboard-list {
-      display: grid;
-      gap: 8px;
-      margin-top: 10px;
-    }
+    .leaderboard { margin-bottom: 18px; }
+    .leaderboard-list { display: grid; gap: 8px; margin-top: 10px; }
 
     .leader-row {
       display: grid;
@@ -381,11 +291,7 @@
       padding: 10px 12px;
       border: 1px solid #ececec;
     }
-
-    .leader-rank {
-      font-weight: 900;
-      text-align: center;
-    }
+    .leader-rank { font-weight: 900; text-align: center; }
 
     .confirm-overlay {
       position: fixed;
@@ -397,7 +303,6 @@
       padding: 20px;
       z-index: 60;
     }
-
     .confirm-box {
       background: var(--white);
       border-radius: 20px;
@@ -407,17 +312,8 @@
       padding: 22px;
       border-top: 8px solid var(--red);
     }
-
-    .confirm-title {
-      font-size: 1.2rem;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-
-    .confirm-text {
-      line-height: 1.55;
-      margin-bottom: 16px;
-    }
+    .confirm-title { font-size: 1.2rem; font-weight: 900; margin-bottom: 10px; }
+    .confirm-text { line-height: 1.55; margin-bottom: 16px; }
 
     .badge-popup {
       position: fixed;
@@ -435,41 +331,41 @@
       pointer-events: none;
       transition: opacity 0.25s ease, transform 0.25s ease;
     }
-
-    .badge-popup.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .badge-title {
-      font-weight: 900;
-      margin-bottom: 6px;
-      font-size: 1.05rem;
-    }
-
-    .rotation-note {
-      font-weight: 700;
-      color: #444;
-    }
+    .badge-popup.show { opacity: 1; transform: translateY(0); }
+    .badge-title { font-weight: 900; margin-bottom: 6px; font-size: 1.05rem; }
+    .rotation-note { font-weight: 700; color: #444; }
 
     @media (max-width: 900px) {
-      .drag-zone-wrap {
-        grid-template-columns: 1fr;
-      }
+      .drag-zone-wrap { grid-template-columns: 1fr; }
+      .station-grid { grid-template-columns: 1fr; }
+      #station-algorithm { grid-column: span 1; }
+      .leader-row { grid-template-columns: 44px 1fr; }
+      .leader-row > div:nth-child(3),
+      .leader-row > div:nth-child(4),
+      .leader-row > div:nth-child(5) { grid-column: 2; }
     }
-
     @media (max-width: 640px) {
-      .binary-options, .cyber-options {
-        grid-template-columns: 1fr;
-      }
-
-      .wrap {
-        padding: 14px;
-      }
-
+      .binary-options, .cyber-options { grid-template-columns: 1fr; }
+      .wrap { padding: 14px; }
       header {
         padding: 18px 14px;
+        position: static;
       }
+      .player-panel, .scoreboard { grid-template-columns: 1fr; }
+      .btn-row { flex-direction: column; }
+      .btn-row button { width: 100%; }
+      .station-card { padding: 14px; }
+      .brand-row { gap: 8px; }
+      .brand-badge { padding: 6px 10px; font-size: 0.9rem; }
+      .score-value { font-size: 1.5rem; }
+      textarea, input[type="text"] { font-size: 16px; }
+      .leader-row { grid-template-columns: 1fr; }
+      .leader-row > div:nth-child(3),
+      .leader-row > div:nth-child(4),
+      .leader-row > div:nth-child(5) { grid-column: auto; }
+      .leader-rank { text-align: left; }
+      .dropzone { min-height: 64px; }
+      .draggable { padding: 14px; }
     }
   </style>
 </head>
@@ -518,31 +414,16 @@
     </section>
 
     <section class="scoreboard">
-      <div class="score-card">
-        <div class="score-label">🏆 Score</div>
-        <div class="score-value" id="scoreValue">0</div>
-      </div>
-      <div class="score-card">
-        <div class="score-label">✅ Stations Cleared</div>
-        <div class="score-value" id="clearedValue">0/5</div>
-      </div>
-      <div class="score-card">
-        <div class="score-label">⏱ Sprint Timer</div>
-        <div class="score-value" id="timerValue">06:00</div>
-      </div>
-      <div class="score-card">
-        <div class="score-label">🎖 Rank</div>
-        <div class="score-value" id="rankValue">Code Rookie</div>
-      </div>
-      <div class="score-card">
-        <div class="score-label">❌ Total Strikes</div>
-        <div class="score-value" id="strikeValue">0</div>
-      </div>
+      <div class="score-card"><div class="score-label">🏆 Score</div><div class="score-value" id="scoreValue">0</div></div>
+      <div class="score-card"><div class="score-label">✅ Stations Cleared</div><div class="score-value" id="clearedValue">0/5</div></div>
+      <div class="score-card"><div class="score-label">⏱ Sprint Timer</div><div class="score-value" id="timerValue">06:00</div></div>
+      <div class="score-card"><div class="score-label">🎖 Rank</div><div class="score-value" id="rankValue">Code Rookie</div></div>
+      <div class="score-card"><div class="score-label">❌ Total Strikes</div><div class="score-value" id="strikeValue">0</div></div>
     </section>
 
     <section class="leaderboard">
       <div class="panel-title">🏅 WGLT Leaderboard</div>
-      <div class="tiny">Save a score with a student name to keep a top-5 class board in the browser. It stores name, time, score, and stations cleared.</div>
+      <div class="tiny">Top 5 scores stored in this browser. Shows name, time, stations cleared, and score.</div>
       <div class="leaderboard-list" id="leaderboardList"></div>
     </section>
 
@@ -555,23 +436,16 @@
           <span class="tag dark">Syntax</span>
         </div>
         <div class="prompt-box">Fix the bug in this code:</div>
-        <div class="code-box" id="debugCode">
-let score = 100;
+        <div class="code-box" id="debugCode">let score = 100;
 if (score = 100) {
   console.log("Perfect score!");
-}
-        </div>
+}</div>
         <textarea id="debugAnswer" placeholder="Type your fix here..."></textarea>
         <div class="btn-row">
           <button class="primary" onclick="checkDebug()">Check Answer</button>
           <button class="secondary" onclick="showHint('debugHint')">Hint</button>
         </div>
-        <div class="hint-box hidden" id="debugHint">
-          <strong>Comparison Operators:</strong><br>
-          !== → Not equal<br>
-          > or < → Greater/Less than<br>
-          >= or <= → Includes the number itself<br>
-        </div>
+        <div class="hint-box hidden" id="debugHint"><strong>Comparison Operators:</strong><br>!== → Not equal<br>> or < → Greater/Less than<br>>= or <= → Includes the number itself</div>
         <div class="feedback" id="debugFeedback"></div>
       </article>
 
@@ -585,7 +459,7 @@ if (score = 100) {
         <div class="prompt-box">Decode this binary message:
 
 01001000 01001001</div>
-        <div class="binary-options">
+        <div class="binary-options" id="binaryOptions">
           <button class="option-btn" onclick="checkBinary(this, 'BY')">BY</button>
           <button class="option-btn" onclick="checkBinary(this, 'HI')">HI</button>
           <button class="option-btn" onclick="checkBinary(this, 'NO')">NO</button>
@@ -594,7 +468,7 @@ if (score = 100) {
         <div class="btn-row">
           <button class="secondary" onclick="showHint('binaryHint')">Hint</button>
         </div>
-        <div class="hint-box hidden" id="binaryHint"><strong>Binary Letter Bank:</strong><br>Use this chart to decode the message by matching each 8-digit code to a letter.<br><br><strong>01000001 = A</strong><br><strong>01000010 = B</strong><br><strong>01000111 = G</strong><br><strong>01001000 = H</strong><br><strong>01001001 = I</strong><br><strong>01001100 = L</strong><br><strong>01001110 = N</strong><br><strong>01001111 = O</strong><br><strong>01010000 = P</strong><br><strong>01010010 = R</strong><br><strong>01010011 = S</strong><br><strong>01010100 = T</strong><br><strong>01011001 = Y</strong><br><br>Now match the two binary groups from the challenge to the right letters.</div>
+        <div class="hint-box hidden" id="binaryHint"><strong>Binary Letter Bank:</strong><br>01000001 = A<br>01000010 = B<br>01000111 = G<br>01001000 = H<br>01001001 = I<br>01001100 = L<br>01001110 = N<br>01001111 = O<br>01010000 = P<br>01010010 = R<br>01010011 = S<br>01010100 = T<br>01011001 = Y<br><br>Match the two binary groups from the challenge to the right letters.</div>
         <div class="feedback" id="binaryFeedback"></div>
       </article>
 
@@ -606,6 +480,7 @@ if (score = 100) {
           <span class="tag dark">Problem Solving</span>
         </div>
         <div class="prompt-box">Put these computer startup commands in the correct order to load a web browser. You don't necessarily need them all to complete this task.</div>
+        <div class="tiny">On touchscreens, you can drag the cards or tap a card and then tap a step box.</div>
         <div class="drag-zone-wrap">
           <div class="draggables" id="algorithmBank">
             <div class="draggable algorithm-draggable" draggable="true" data-step="5">Go to the website.</div>
@@ -645,7 +520,7 @@ if (score = 100) {
 "URGENT! Your school account will be deleted today. Click this link now to save it: www.school-safe-login-now.biz"
 
 Which choice best explains the risk?</div>
-        <div class="cyber-options">
+        <div class="cyber-options" id="cyberOptions">
           <button class="option-btn" onclick="checkCyber(this, 'safe')">It is safe because it says school.</button>
           <button class="option-btn" onclick="checkCyber(this, 'risk')">It looks risky because it uses urgency and a suspicious link.</button>
           <button class="option-btn" onclick="checkCyber(this, 'fine')">It is fine because every email has links.</button>
@@ -666,6 +541,7 @@ Which choice best explains the risk?</div>
           <span class="tag dark">Touch Ready</span>
         </div>
         <div class="prompt-box">Match each computer part to the correct function. Drag and drop each item into the right hardware job box. Works with mouse or touch.</div>
+        <div class="tiny">On touchscreens, you can drag the cards or tap a part and then tap a hardware box.</div>
         <div class="drag-zone-wrap">
           <div class="draggables" id="draggablesArea">
             <div class="draggable" draggable="true" data-match="ssd">SSD</div>
@@ -673,15 +549,9 @@ Which choice best explains the risk?</div>
             <div class="draggable" draggable="true" data-match="ram">RAM</div>
           </div>
           <div class="dropzones">
-            <div class="dropzone" data-accept="ram">
-              <div class="drop-label">Temporary memory while programs are open</div>
-            </div>
-            <div class="dropzone" data-accept="ssd">
-              <div class="drop-label">Stores files and apps long term</div>
-            </div>
-            <div class="dropzone" data-accept="cpu">
-              <div class="drop-label">Processes instructions and runs commands</div>
-            </div>
+            <div class="dropzone hardware-zone" data-accept="ram"><div class="drop-label">Temporary memory while programs are open</div></div>
+            <div class="dropzone hardware-zone" data-accept="ssd"><div class="drop-label">Stores files and apps long term</div></div>
+            <div class="dropzone hardware-zone" data-accept="cpu"><div class="drop-label">Processes instructions and runs commands</div></div>
           </div>
         </div>
         <div class="btn-row">
@@ -694,10 +564,8 @@ Which choice best explains the risk?</div>
 
     <section class="footer-box">
       <strong>Teacher / Presenter Notes:</strong><br>
-      This WGLT build is ready for smartboards, touchscreen monitors, tablets, laptops, and Wix HTML embeds. It includes student name entry, leaderboard memory, simple badge popups, sound effects, and station rotation mode for classroom flow.
-      <div class="tiny" style="margin-top:10px;">
-        Suggested use: run as a 6-minute sprint, rotate in pairs, save top scores, and celebrate badges like Debug Master, Binary Breaker, Cyber Defender, and Systems Builder.
-      </div>
+      This WGLT build is ready for smartboards, touchscreen monitors, tablets, laptops, and Wix HTML embeds. It includes student name entry, leaderboard memory, badge popups, sound effects, and station rotation mode for classroom flow.
+      <div class="tiny" style="margin-top:10px;">Suggested use: run as a 6-minute sprint, rotate in pairs, save top scores, and celebrate badges like Debug Master, Binary Breaker, Cyber Defender, and Systems Builder.</div>
     </section>
   </div>
 
@@ -729,43 +597,18 @@ Which choice best explains the risk?</div>
     let rotationMode = false;
     let rotationIndex = 0;
     let sprintFinished = false;
+    let selectedTapItem = null;
+
     const stationOrder = ['station-debug', 'station-binary', 'station-algorithm', 'station-cyber', 'station-drag'];
-
-    const solved = {
-      debug: false,
-      binary: false,
-      algorithm: false,
-      cyber: false,
-      drag: false
-    };
-
-    const stationLocked = {
-      debug: false,
-      binary: false,
-      algorithm: false,
-      cyber: false,
-      drag: false
-    };
-
-    const strikes = {
-      debug: 0,
-      binary: 0,
-      algorithm: 0,
-      cyber: 0,
-      drag: 0
-    };
-
-    const badgeAwarded = {
-      debug: false,
-      binary: false,
-      algorithm: false,
-      cyber: false,
-      drag: false
-    };
+    const solved = { debug: false, binary: false, algorithm: false, cyber: false, drag: false };
+    const stationLocked = { debug: false, binary: false, algorithm: false, cyber: false, drag: false };
+    const strikes = { debug: 0, binary: 0, algorithm: 0, cyber: 0, drag: 0 };
+    const badgeAwarded = { debug: false, binary: false, algorithm: false, cyber: false, drag: false };
+    const dragState = { draggingEl: null };
 
     function updateBoard() {
       document.getElementById('scoreValue').textContent = score;
-      document.getElementById('clearedValue').textContent = `${cleared}/5`;
+      document.getElementById('clearedValue').textContent = cleared + '/5';
       document.getElementById('strikeValue').textContent = totalStrikes;
 
       let rank = 'Code Rookie';
@@ -780,102 +623,35 @@ Which choice best explains the risk?</div>
       const safe = Math.max(0, seconds);
       const m = String(Math.floor(safe / 60)).padStart(2, '0');
       const s = String(safe % 60).padStart(2, '0');
-      return `${m}:${s}`;
+      return m + ':' + s;
     }
 
     function startTimer() {
       if (timerStarted || sprintFinished) return;
       timerStarted = true;
       timerPaused = false;
-      timerInterval = setInterval(() => {
+      timerInterval = setInterval(function () {
         if (timerPaused || sprintFinished) return;
-        timeLeft--;
+        timeLeft -= 1;
         document.getElementById('timerValue').textContent = formatTime(timeLeft);
-        if (timeLeft <= 0) {
-          finishSprint('time');
-        }
+        if (timeLeft <= 0) finishSprint('time');
       }, 1000);
     }
 
     function stopTimer() {
-      if (!timerStarted && !timerInterval) {
-        rotationMode = false;
-        clearRotationHighlight();
-        document.getElementById('rotationToggle').textContent = 'Start Rotation';
-        document.getElementById('rotationStatus').textContent = 'Rotation mode is off.';
-        return;
-      }
       timerPaused = true;
       timerStarted = false;
       if (timerInterval) {
         clearInterval(timerInterval);
         timerInterval = null;
       }
-      document.getElementById('rotationToggle').textContent = 'Start Rotation';
-      document.getElementById('rotationStatus').textContent = 'Rotation mode is off.';
       rotationMode = false;
       clearRotationHighlight();
-    }
-
-    function resetSprint() {
-      stopTimer();
-      sprintFinished = false;
-      score = 0;
-      cleared = 0;
-      totalStrikes = 0;
-      timeLeft = 360;
-      rotationIndex = 0;
-
-      Object.keys(solved).forEach(function(key) {
-        solved[key] = false;
-      });
-      Object.keys(stationLocked).forEach(function(key) {
-        stationLocked[key] = false;
-      });
-      Object.keys(strikes).forEach(function(key) {
-        strikes[key] = 0;
-      });
-      Object.keys(badgeAwarded).forEach(function(key) {
-        badgeAwarded[key] = false;
-      });
-
-      document.getElementById('studentName').value = '';
-      document.getElementById('timerValue').textContent = formatTime(timeLeft);
+      document.getElementById('rotationToggle').textContent = 'Start Rotation';
       document.getElementById('rotationStatus').textContent = 'Rotation mode is off.';
-
-      document.querySelectorAll('.feedback').forEach(function(el) {
-        el.className = 'feedback';
-        el.innerHTML = '';
-      });
-      document.querySelectorAll('.hint-box').forEach(function(el) {
-        el.classList.add('hidden');
-      });
-      document.querySelectorAll('.option-btn').forEach(function(btn) {
-        btn.disabled = false;
-        btn.classList.remove('correct', 'wrong');
-      });
-      document.getElementById('debugAnswer').value = '';
-      resetAlgorithmOrder();
-      resetDragMatching();
-      updateBoard();
     }
 
-    function openConfirmPopup() {
-      document.getElementById('confirmOverlay').classList.remove('hidden');
-    }
-
-    function closeConfirmPopup() {
-      document.getElementById('confirmOverlay').classList.add('hidden');
-    }
-
-    function confirmClearLeaderboard() {
-      localStorage.removeItem('wgltSkillsSprintLeaderboard');
-      renderLeaderboard();
-      closeConfirmPopup();
-      showBadge('🧽 Leaderboard Cleared', 'The saved class scores have been removed from this browser.');
-    }
-
-    function finishSprint(reason = 'completed') {
+    function finishSprint(reason) {
       if (sprintFinished) return;
       sprintFinished = true;
       timerPaused = true;
@@ -887,32 +663,27 @@ Which choice best explains the risk?</div>
       rotationMode = false;
       clearRotationHighlight();
       document.getElementById('rotationToggle').textContent = 'Start Rotation';
-      document.getElementById('rotationStatus').textContent = reason === 'completed'
-        ? 'Sprint complete. All 5 stations are done.'
-        : 'Sprint ended. Time ran out.';
+      document.getElementById('rotationStatus').textContent = reason === 'completed' ? 'Sprint complete. All 5 stations are done.' : 'Sprint ended. Time ran out.';
       document.getElementById('timerValue').textContent = formatTime(timeLeft);
       playTone('end');
       const message = reason === 'completed'
-        ? `Sprint complete! Final Score: ${score} | Stations Cleared: ${cleared}/5 | Time Left: ${formatTime(timeLeft)}`
-        : `Time's up! Final Score: ${score} | Stations Cleared: ${cleared}/5`;
-      setTimeout(() => {
+        ? 'Sprint complete! Final Score: ' + score + ' | Stations Cleared: ' + cleared + '/5 | Time Left: ' + formatTime(timeLeft)
+        : 'Time\'s up! Final Score: ' + score + ' | Stations Cleared: ' + cleared + '/5';
+      setTimeout(function () {
         alert(message);
-        if (reason === 'completed') {
-          saveToLeaderboard(true);
-        }
+        if (reason === 'completed') saveToLeaderboard(true);
       }, 50);
     }
 
     function addPoints(points, key) {
-      if (!solved[key] && !stationLocked[key]) {
-        score += points;
-        cleared += 1;
-        solved[key] = true;
-        updateBoard();
-        maybeAwardBadge(key);
-        playTone('good');
-        if (cleared >= 5) finishSprint('completed');
-      }
+      if (solved[key] || stationLocked[key]) return;
+      score += points;
+      cleared += 1;
+      solved[key] = true;
+      updateBoard();
+      maybeAwardBadge(key);
+      playTone('good');
+      if (cleared >= 5) finishSprint('completed');
     }
 
     function applyStrike(key, feedbackId, incorrectMessage, lockMessage) {
@@ -921,20 +692,21 @@ Which choice best explains the risk?</div>
       totalStrikes += 1;
       score = Math.max(0, score - 5);
       updateBoard();
+
       if (strikes[key] >= 2) {
         stationLocked[key] = true;
-        setFeedback(feedbackId, false, `${incorrectMessage} <br><br><strong>Strike ${strikes[key]}/2.</strong> ${lockMessage}`);
+        setFeedback(feedbackId, false, incorrectMessage + '<br><br><strong>Strike ' + strikes[key] + '/2.</strong> ' + lockMessage);
         playTone('bad');
-        if (cleared + Object.values(stationLocked).filter(Boolean).length >= 5) finishSprint('completed');
+        const finishedCount = cleared + Object.values(stationLocked).filter(Boolean).length;
+        if (finishedCount >= 5) finishSprint('completed');
       } else {
-        setFeedback(feedbackId, false, `${incorrectMessage} <br><br><strong>Strike ${strikes[key]}/2.</strong> One more wrong answer and this station locks.`);
+        setFeedback(feedbackId, false, incorrectMessage + '<br><br><strong>Strike ' + strikes[key] + '/2.</strong> One more wrong answer and this station locks.');
       }
     }
 
     function showHint(id) {
       startTimer();
-      const el = document.getElementById(id);
-      el.classList.remove('hidden');
+      document.getElementById(id).classList.remove('hidden');
       playTone('hint');
     }
 
@@ -954,23 +726,16 @@ Which choice best explains the risk?</div>
       const gain = ctx.createGain();
       osc.connect(gain);
       gain.connect(ctx.destination);
-
-      const toneMap = {
-        good: [660, 0.08],
-        bad: [220, 0.12],
-        hint: [440, 0.07],
-        badge: [880, 0.12],
-        end: [180, 0.2]
-      };
-      const [freq, dur] = toneMap[type] || [500, 0.08];
-      osc.frequency.value = freq;
+      const toneMap = { good: [660, 0.08], bad: [220, 0.12], hint: [440, 0.07], badge: [880, 0.12], end: [180, 0.2] };
+      const pair = toneMap[type] || [500, 0.08];
+      osc.frequency.value = pair[0];
       osc.type = 'sine';
       gain.gain.setValueAtTime(0.0001, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.1, ctx.currentTime + 0.01);
-      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + dur);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + pair[1]);
       osc.start();
-      osc.stop(ctx.currentTime + dur + 0.01);
-      osc.onended = () => ctx.close();
+      osc.stop(ctx.currentTime + pair[1] + 0.01);
+      osc.onended = function () { ctx.close(); };
     }
 
     function maybeAwardBadge(key) {
@@ -979,12 +744,11 @@ Which choice best explains the risk?</div>
       const badgeMap = {
         debug: ['🛠 Debug Master', 'You repaired a broken line of code.'],
         binary: ['🔢 Binary Breaker', 'You decoded a computer message.'],
-        algorithm: ['📋 Step Builder', 'You created a clear algorithm.'],
+        algorithm: ['📋 Step Builder', 'You sequenced the startup commands.'],
         cyber: ['🛡 Cyber Defender', 'You spotted a phishing risk.'],
         drag: ['🧩 Systems Matcher', 'You matched hardware using drag-and-drop.']
       };
-      const [title, message] = badgeMap[key];
-      showBadge(title, message);
+      showBadge(badgeMap[key][0], badgeMap[key][1]);
       playTone('badge');
     }
 
@@ -993,7 +757,7 @@ Which choice best explains the risk?</div>
       document.getElementById('badgeTitle').textContent = title;
       document.getElementById('badgeMessage').textContent = message;
       popup.classList.add('show');
-      setTimeout(() => popup.classList.remove('show'), 2600);
+      setTimeout(function () { popup.classList.remove('show'); }, 2600);
     }
 
     function checkDebug() {
@@ -1003,69 +767,42 @@ Which choice best explains the risk?</div>
       const value = document.getElementById('debugAnswer').value;
       const codeBox = document.getElementById('debugCode');
 
-      const usesStrictEquality = value.includes('===');
-      const usesLooseEquality = value.includes('==') && !value.includes('===');
-      const usesAssignment = value.includes('=') && !value.includes('==') && !value.includes('===');
+      const usesStrictEquality = value.indexOf('===') !== -1;
+      const usesLooseEquality = value.indexOf('==') !== -1 && value.indexOf('===') === -1;
+      const usesAssignment = value.indexOf('=') !== -1 && value.indexOf('==') === -1 && value.indexOf('===') === -1;
 
-      codeBox.innerHTML = `let score = 100;
-if (score = 100) {
-  console.log("Perfect score!");
-}`;
+      codeBox.innerHTML = 'let score = 100;\nif (score = 100) {\n  console.log("Perfect score!");\n}';
 
       if (usesStrictEquality) {
-        codeBox.innerHTML = `let score = 100;
-if (score <span style="color:limegreen;font-weight:bold;">===</span> 100) {
-  console.log("Perfect score!");
-}`;
+        codeBox.innerHTML = 'let score = 100;\nif (score <span style="color:limegreen;font-weight:bold;">===</span> 100) {\n  console.log("Perfect score!");\n}';
         addPoints(25, 'debug');
-        setFeedback('debugFeedback', true, `Correct! You used strict equality (===). ${strikes.debug}/2 strikes.`);
+        setFeedback('debugFeedback', true, 'Correct! You used strict equality (===). ' + strikes.debug + '/2 strikes.');
       } else if (usesLooseEquality) {
-        codeBox.innerHTML = `let score = 100;
-if (score <span style="color:red;font-weight:bold;">=</span> 100) {
-  console.log("Perfect score!");
-}`;
-        applyStrike(
-          'debug',
-          'debugFeedback',
-          '❌ You used loose equality (==). Use strict equality (===) to compare both value and type.',
-          'You are out of tries for Bug Fix Blitz. Move to the next station.'
-        );
+        codeBox.innerHTML = 'let score = 100;\nif (score <span style="color:red;font-weight:bold;">==</span> 100) {\n  console.log("Perfect score!");\n}';
+        applyStrike('debug', 'debugFeedback', '❌ You used loose equality (==). Use strict equality (===) to compare both value and type.', 'You are out of tries for Bug Fix Blitz. Move to the next station.');
       } else if (usesAssignment) {
-        codeBox.innerHTML = `let score = 100;
-if (score <span style="color:red;font-weight:bold;">=</span> 100) {
-  console.log("Perfect score!");
-}`;
-        applyStrike(
-          'debug',
-          'debugFeedback',
-          '❌ You used assignment (=). That changes the value instead of comparing it.',
-          'You are out of tries for Bug Fix Blitz. Move to the next station.'
-        );
+        codeBox.innerHTML = 'let score = 100;\nif (score <span style="color:red;font-weight:bold;">=</span> 100) {\n  console.log("Perfect score!");\n}';
+        applyStrike('debug', 'debugFeedback', '❌ You used assignment (=). That changes the value instead of comparing it.', 'You are out of tries for Bug Fix Blitz. Move to the next station.');
       } else {
-        applyStrike(
-          'debug',
-          'debugFeedback',
-          '❌ Not quite. Look closely at the operator used in the if statement.',
-          'You are out of tries for Bug Fix Blitz. Move to the next station.'
-        );
+        applyStrike('debug', 'debugFeedback', '❌ Not quite. Look closely at the operator used in the if statement.', 'You are out of tries for Bug Fix Blitz. Move to the next station.');
       }
     }
 
     function checkBinary(button, answer) {
       startTimer();
       if (solved.binary || stationLocked.binary || sprintFinished) return;
-      const buttons = button.parentElement.querySelectorAll('button');
+      const buttons = document.querySelectorAll('#binaryOptions .option-btn');
       if (answer === 'HI') {
-        buttons.forEach(btn => btn.disabled = true);
+        buttons.forEach(function (btn) { btn.disabled = true; });
         button.classList.add('correct');
         addPoints(25, 'binary');
-        setFeedback('binaryFeedback', true, `Correct! You matched the binary codes to the right letters with ${strikes.binary}/2 strikes.`);
+        setFeedback('binaryFeedback', true, 'Correct! You matched the binary codes to the right letters with ' + strikes.binary + '/2 strikes.');
       } else {
         button.classList.add('wrong');
         applyStrike('binary', 'binaryFeedback', 'That pairing is not correct yet.', 'This binary station is locked. Move to the next one.');
         if (stationLocked.binary) {
-          buttons.forEach(btn => btn.disabled = true);
-          buttons.forEach(btn => {
+          buttons.forEach(function (btn) {
+            btn.disabled = true;
             if (btn.textContent === 'HI') btn.classList.add('correct');
           });
         }
@@ -1078,7 +815,7 @@ if (score <span style="color:red;font-weight:bold;">=</span> 100) {
       const slots = Array.from(document.querySelectorAll('.algorithm-slot'));
       let correctInOrder = 0;
 
-      slots.forEach((slot, index) => {
+      slots.forEach(function (slot, index) {
         const item = slot.querySelector('.algorithm-draggable');
         const ok = item && Number(item.dataset.step) === index;
         slot.classList.toggle('correct-zone', !!ok);
@@ -1089,50 +826,63 @@ if (score <span style="color:red;font-weight:bold;">=</span> 100) {
         addPoints(25, 'algorithm');
         setFeedback('algorithmFeedback', true, 'Nice work! You placed ' + correctInOrder + ' commands in the correct order with ' + strikes.algorithm + '/2 strikes.');
       } else {
-        applyStrike(
-          'algorithm',
-          'algorithmFeedback',
-          'Drag the command sentences into order. You need at least 4 in the correct order to earn the points.',
-          'Algorithm Race is now locked. Move on to the next station.'
-        );
+        applyStrike('algorithm', 'algorithmFeedback', 'Drag the command sentences into order. You need at least 4 in the correct order to earn the points.', 'Algorithm Race is now locked. Move on to the next station.');
       }
     }
 
     function checkCyber(button, answer) {
       startTimer();
       if (solved.cyber || stationLocked.cyber || sprintFinished) return;
-      const buttons = button.parentElement.querySelectorAll('button');
+      const buttons = document.querySelectorAll('#cyberOptions .option-btn');
       if (answer === 'risk') {
-        buttons.forEach(btn => btn.disabled = true);
+        buttons.forEach(function (btn) { btn.disabled = true; });
         button.classList.add('correct');
         addPoints(25, 'cyber');
-        setFeedback('cyberFeedback', true, `Correct! You spotted the phishing risk with ${strikes.cyber}/2 strikes.`);
+        setFeedback('cyberFeedback', true, 'Correct! You spotted the phishing risk with ' + strikes.cyber + '/2 strikes.');
       } else {
         button.classList.add('wrong');
         applyStrike('cyber', 'cyberFeedback', 'That choice misses the warning signs in the message.', 'Cybersecurity Spot the Risk is locked. Move to the next station.');
         if (stationLocked.cyber) {
-          buttons.forEach(btn => btn.disabled = true);
-          buttons.forEach(btn => {
-            if (btn.textContent.includes('looks risky')) btn.classList.add('correct');
+          buttons.forEach(function (btn) {
+            btn.disabled = true;
+            if (btn.textContent.indexOf('looks risky') !== -1) btn.classList.add('correct');
           });
         }
       }
     }
 
+    function checkDragMatching() {
+      startTimer();
+      if (solved.drag || stationLocked.drag || sprintFinished) return;
+      const dropzones = document.querySelectorAll('#station-drag .hardware-zone');
+      let correctCount = 0;
+      dropzones.forEach(function (zone) {
+        const item = zone.querySelector('.draggable');
+        const ok = item && item.dataset.match === zone.dataset.accept;
+        zone.classList.toggle('correct-zone', !!ok);
+        if (ok) correctCount += 1;
+      });
+
+      if (correctCount === 3) {
+        addPoints(25, 'drag');
+        setFeedback('dragFeedback', true, 'Excellent! You matched the hardware correctly with ' + strikes.drag + '/2 strikes.');
+      } else {
+        applyStrike('drag', 'dragFeedback', 'You have ' + correctCount + '/3 correct. Keep matching the parts to their jobs.', 'Hardware Match-Up is locked. Move to the next station.');
+      }
+    }
+
     function toggleSound() {
       soundEnabled = !soundEnabled;
-      document.getElementById('soundToggle').textContent = `Sound: ${soundEnabled ? 'On' : 'Off'}`;
+      document.getElementById('soundToggle').textContent = 'Sound: ' + (soundEnabled ? 'On' : 'Off');
     }
 
     function toggleRotationMode() {
       if (sprintFinished) return;
       rotationMode = !rotationMode;
-      const btn = document.getElementById('rotationToggle');
-      const status = document.getElementById('rotationStatus');
       if (rotationMode) {
         rotationIndex = 0;
-        btn.textContent = 'Stop Rotation';
-        status.textContent = 'Rotation mode is on. Station 1 is highlighted.';
+        document.getElementById('rotationToggle').textContent = 'Stop Rotation';
+        document.getElementById('rotationStatus').textContent = 'Rotation mode is on. Station 1 is highlighted.';
         highlightRotationStation();
         startTimer();
       } else {
@@ -1141,7 +891,7 @@ if (score <span style="color:red;font-weight:bold;">=</span> 100) {
     }
 
     function clearRotationHighlight() {
-      stationOrder.forEach(id => {
+      stationOrder.forEach(function (id) {
         const el = document.getElementById(id);
         if (el) el.classList.remove('active-rotation');
       });
@@ -1161,58 +911,46 @@ if (score <span style="color:red;font-weight:bold;">=</span> 100) {
       if (!rotationMode || sprintFinished) return;
       rotationIndex = (rotationIndex + 1) % stationOrder.length;
       highlightRotationStation();
-      document.getElementById('rotationStatus').textContent = `Rotation mode is on. Now showing station ${rotationIndex + 1}.`;
+      document.getElementById('rotationStatus').textContent = 'Rotation mode is on. Now showing station ' + (rotationIndex + 1) + '.';
       playTone('hint');
     }
 
-    function saveToLeaderboard(autoSave = false) {
+    function saveToLeaderboard(autoSave) {
       const name = document.getElementById('studentName').value.trim() || 'Student';
       const timeUsed = 360 - timeLeft;
       const current = JSON.parse(localStorage.getItem('wgltSkillsSprintLeaderboard') || '[]');
+      const isAuto = !!autoSave;
 
-      if (autoSave) {
-        const duplicate = current.some(entry =>
-          entry.name === name &&
-          entry.score === score &&
-          entry.cleared === cleared &&
-          entry.timeUsed === timeUsed
-        );
+      if (isAuto) {
+        const duplicate = current.some(function (entry) {
+          return entry.name === name && entry.score === score && entry.cleared === cleared && entry.timeUsed === timeUsed;
+        });
         if (duplicate) return;
       }
 
-      current.push({
-        name,
-        score,
-        cleared,
-        timeUsed,
-        rank: document.getElementById('rankValue').textContent
-      });
-      current.sort((a, b) => b.score - a.score || a.timeUsed - b.timeUsed || b.cleared - a.cleared);
-      const trimmed = current.slice(0, 5);
-      localStorage.setItem('wgltSkillsSprintLeaderboard', JSON.stringify(trimmed));
+      current.push({ name: name, score: score, cleared: cleared, timeUsed: timeUsed, rank: document.getElementById('rankValue').textContent });
+      current.sort(function (a, b) { return b.score - a.score || a.timeUsed - b.timeUsed || b.cleared - a.cleared; });
+      localStorage.setItem('wgltSkillsSprintLeaderboard', JSON.stringify(current.slice(0, 5)));
       renderLeaderboard();
-
-      if (!autoSave) {
-        showBadge('🏆 Score Saved', `${name} was added to the WGLT leaderboard.`);
-      }
+      if (!isAuto) showBadge('🏆 Score Saved', name + ' was added to the WGLT leaderboard.');
     }
 
     function renderLeaderboard() {
       const list = document.getElementById('leaderboardList');
       const current = JSON.parse(localStorage.getItem('wgltSkillsSprintLeaderboard') || '[]');
       if (!current.length) {
-        list.innerHTML = '<div class="tiny">No scores saved yet. Enter a student name and save a score.</div>';
+        list.innerHTML = '<div class="tiny">No scores saved yet.</div>';
         return;
       }
-      list.innerHTML = current.map((entry, index) => `
-        <div class="leader-row">
-          <div class="leader-rank">${index + 1}</div>
-          <div><strong>${escapeHtml(entry.name)}</strong><div class="tiny">${escapeHtml(entry.rank)}</div></div>
-          <div><strong>${formatTime(entry.timeUsed || 0)}</strong></div>
-          <div><strong>${entry.cleared || 0}/5</strong></div>
-          <div><strong>${entry.score}</strong> pts</div>
-        </div>
-      `).join('');
+      list.innerHTML = current.map(function (entry, index) {
+        return '<div class="leader-row">'
+          + '<div class="leader-rank">' + (index + 1) + '</div>'
+          + '<div><strong>' + escapeHtml(entry.name) + '</strong><div class="tiny">' + escapeHtml(entry.rank) + '</div></div>'
+          + '<div><strong>' + formatTime(entry.timeUsed || 0) + '</strong></div>'
+          + '<div><strong>' + (entry.cleared || 0) + '/5</strong></div>'
+          + '<div><strong>' + entry.score + '</strong> pts</div>'
+          + '</div>';
+      }).join('');
     }
 
     function escapeHtml(text) {
@@ -1224,84 +962,47 @@ if (score <span style="color:red;font-weight:bold;">=</span> 100) {
         .replace(/'/g, '&#039;');
     }
 
-    const dragState = {
-      draggingEl: null,
-      pointerClone: null,
-      matches: {}
-    };
-
-    function attachDragEvents() {
-      const draggables = document.querySelectorAll('.draggable');
-      const dropzones = document.querySelectorAll('.dropzone');
-
-      draggables.forEach(item => {
-        item.addEventListener('dragstart', e => {
-          dragState.draggingEl = item;
-          item.classList.add('dragging');
-          e.dataTransfer.setData('text/plain', item.dataset.match || item.dataset.step || '');
-        });
-
-        item.addEventListener('dragend', () => {
-          item.classList.remove('dragging');
-          dragState.draggingEl = null;
-        });
-
-        item.addEventListener('pointerdown', startPointerDrag);
+    function resetDragMatching() {
+      const area = document.getElementById('draggablesArea');
+      document.querySelectorAll('#station-drag .hardware-zone').forEach(function (zone) {
+        zone.classList.remove('correct-zone', 'hit');
+        const item = zone.querySelector('.draggable');
+        if (item) area.appendChild(item);
       });
-
-      dropzones.forEach(zone => {
-        zone.addEventListener('dragover', e => {
-          e.preventDefault();
-          zone.classList.add('hit');
-        });
-        zone.addEventListener('dragleave', () => zone.classList.remove('hit'));
-        zone.addEventListener('drop', e => {
-          e.preventDefault();
-          zone.classList.remove('hit');
-          const key = e.dataTransfer.getData('text/plain');
-          let item = document.querySelector(`.draggable[data-match="${key}"]`);
-          if (!item) item = document.querySelector(`.algorithm-draggable[data-step="${key}"]`);
-          if (item) placeInZone(item, zone);
-        });
-      });
-
-      document.addEventListener('pointermove', onPointerMove);
-      document.addEventListener('pointerup', endPointerDrag);
+      document.getElementById('dragFeedback').className = 'feedback';
+      document.getElementById('dragFeedback').innerHTML = '';
     }
 
-    function startPointerDrag(e) {
-      const item = e.currentTarget;
-      dragState.draggingEl = item;
-      item.classList.add('dragging');
-      dragState.pointerClone = item;
-      item.setPointerCapture(e.pointerId);
+    function resetAlgorithmOrder() {
+      const bank = document.getElementById('algorithmBank');
+      document.querySelectorAll('.algorithm-slot').forEach(function (zone) {
+        zone.classList.remove('correct-zone', 'hit');
+        const item = zone.querySelector('.algorithm-draggable');
+        if (item) bank.appendChild(item);
+      });
+      document.getElementById('algorithmFeedback').className = 'feedback';
+      document.getElementById('algorithmFeedback').innerHTML = '';
     }
 
-    function onPointerMove(e) {
-      if (!dragState.draggingEl) return;
-      const zones = document.querySelectorAll('.dropzone');
-      zones.forEach(zone => {
-        const rect = zone.getBoundingClientRect();
-        const inside = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
-        zone.classList.toggle('hit', inside);
+    function clearTapSelection() {
+      document.querySelectorAll('.draggable.tap-selected').forEach(function (el) {
+        el.classList.remove('tap-selected');
       });
+      selectedTapItem = null;
     }
 
-    function endPointerDrag(e) {
-      if (!dragState.draggingEl) return;
-      const zones = document.querySelectorAll('.dropzone');
-      let dropped = false;
-      zones.forEach(zone => {
-        const rect = zone.getBoundingClientRect();
-        const inside = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
-        zone.classList.remove('hit');
-        if (inside && !dropped) {
-          placeInZone(dragState.draggingEl, zone);
-          dropped = true;
-        }
-      });
-      dragState.draggingEl.classList.remove('dragging');
-      dragState.draggingEl = null;
+    function selectTapItem(item) {
+      clearTapSelection();
+      selectedTapItem = item;
+      item.classList.add('tap-selected');
+    }
+
+    function isCompatibleZone(item, zone) {
+      if (!item || !zone) return false;
+      if (item.classList.contains('algorithm-draggable')) {
+        return zone.classList.contains('algorithm-slot');
+      }
+      return zone.classList.contains('hardware-zone');
     }
 
     function placeInZone(item, zone) {
@@ -1315,67 +1016,148 @@ if (score <span style="color:red;font-weight:bold;">=</span> 100) {
       }
       zone.appendChild(item);
       item.style.marginTop = '8px';
-      if (item.dataset.match && zone.dataset.accept) {
-        dragState.matches[item.dataset.match] = zone.dataset.accept;
-      }
       playTone('hint');
+      clearTapSelection();
     }
 
-    function checkDragMatching() {
-      startTimer();
-      if (solved.drag || stationLocked.drag || sprintFinished) return;
+    function startPointerDrag(e) {
+      const item = e.currentTarget;
+      dragState.draggingEl = item;
+      item.classList.add('dragging');
+      item.setPointerCapture(e.pointerId);
+    }
 
-      const dropzones = document.querySelectorAll('#station-drag .dropzone');
-      let correctCount = 0;
-
-      dropzones.forEach(zone => {
-        const item = zone.querySelector('.draggable');
-        const ok = item && item.dataset.match === zone.dataset.accept;
-        zone.classList.toggle('correct-zone', !!ok);
-        if (ok) correctCount++;
+    function onPointerMove(e) {
+      if (!dragState.draggingEl) return;
+      document.querySelectorAll('.dropzone').forEach(function (zone) {
+        const rect = zone.getBoundingClientRect();
+        const inside = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+        zone.classList.toggle('hit', inside);
       });
-
-      if (correctCount === 3) {
-        addPoints(25, 'drag');
-        setFeedback('dragFeedback', true, `Excellent! You matched the hardware correctly with ${strikes.drag}/2 strikes.`);
-      } else {
-        applyStrike(
-          'drag',
-          'dragFeedback',
-          `You have ${correctCount}/3 correct. Keep matching the parts to their jobs.`,
-          'Hardware Match-Up is locked. Move to the next station.'
-        );
-      }
     }
 
-    function resetDragMatching() {
-      const area = document.getElementById('draggablesArea');
-      document.querySelectorAll('.dropzone').forEach(zone => {
-        if (!zone.classList.contains('algorithm-slot')) {
-          zone.classList.remove('correct-zone', 'hit');
-          const item = zone.querySelector('.draggable');
-          if (item) area.appendChild(item);
+    function endPointerDrag(e) {
+      if (!dragState.draggingEl) return;
+      const zones = document.querySelectorAll('.dropzone');
+      let dropped = false;
+      zones.forEach(function (zone) {
+        const rect = zone.getBoundingClientRect();
+        const inside = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+        zone.classList.remove('hit');
+        if (inside && !dropped) {
+          placeInZone(dragState.draggingEl, zone);
+          dropped = true;
         }
       });
-      dragState.matches = {};
-      document.getElementById('dragFeedback').className = 'feedback';
-      document.getElementById('dragFeedback').innerHTML = '';
+      dragState.draggingEl.classList.remove('dragging');
+      dragState.draggingEl = null;
+      clearTapSelection();
     }
 
-    function resetAlgorithmOrder() {
-      const bank = document.getElementById('algorithmBank');
-      document.querySelectorAll('.algorithm-slot').forEach(zone => {
-        zone.classList.remove('correct-zone', 'hit');
-        const item = zone.querySelector('.algorithm-draggable');
-        if (item) bank.appendChild(item);
+    function attachDragEvents() {
+      const draggables = document.querySelectorAll('.draggable');
+      const dropzones = document.querySelectorAll('.dropzone');
+      draggables.forEach(function (item) {
+        item.addEventListener('dragstart', function (e) {
+          dragState.draggingEl = item;
+          item.classList.add('dragging');
+          e.dataTransfer.setData('text/plain', item.dataset.match || item.dataset.step || '');
+        });
+        item.addEventListener('dragend', function () {
+          item.classList.remove('dragging');
+          dragState.draggingEl = null;
+        });
+        item.addEventListener('pointerdown', startPointerDrag);
+        item.addEventListener('click', function () {
+          if (dragState.draggingEl) return;
+          selectTapItem(item);
+        });
       });
-      document.getElementById('algorithmFeedback').className = 'feedback';
-      document.getElementById('algorithmFeedback').innerHTML = '';
+
+      dropzones.forEach(function (zone) {
+        zone.addEventListener('dragover', function (e) {
+          e.preventDefault();
+          zone.classList.add('hit');
+        });
+        zone.addEventListener('dragleave', function () {
+          zone.classList.remove('hit');
+        });
+        zone.addEventListener('drop', function (e) {
+          e.preventDefault();
+          zone.classList.remove('hit');
+          const key = e.dataTransfer.getData('text/plain');
+          let item = document.querySelector('.draggable[data-match="' + key + '"]');
+          if (!item) item = document.querySelector('.algorithm-draggable[data-step="' + key + '"]');
+          if (item) placeInZone(item, zone);
+        });
+        zone.addEventListener('click', function () {
+          if (selectedTapItem && isCompatibleZone(selectedTapItem, zone)) {
+            placeInZone(selectedTapItem, zone);
+          }
+        });
+      });
+
+      document.addEventListener('pointermove', onPointerMove);
+      document.addEventListener('pointerup', endPointerDrag);
+    }
+
+    function resetAllInteractiveStates() {
+      document.getElementById('debugCode').innerHTML = 'let score = 100;\nif (score = 100) {\n  console.log("Perfect score!");\n}';
+      document.querySelectorAll('.option-btn').forEach(function (btn) {
+        btn.disabled = false;
+        btn.classList.remove('correct', 'wrong');
+      });
+      document.querySelectorAll('.feedback').forEach(function (el) {
+        el.className = 'feedback';
+        el.innerHTML = '';
+      });
+      document.querySelectorAll('.hint-box').forEach(function (el) {
+        el.classList.add('hidden');
+      });
+      document.querySelectorAll('.dropzone').forEach(function (el) {
+        el.classList.remove('correct-zone', 'hit');
+      });
+      clearTapSelection();
+    }
+
+    function resetSprint() {
+      stopTimer();
+      sprintFinished = false;
+      score = 0;
+      cleared = 0;
+      totalStrikes = 0;
+      timeLeft = 360;
+      rotationIndex = 0;
+      Object.keys(solved).forEach(function (key) { solved[key] = false; });
+      Object.keys(stationLocked).forEach(function (key) { stationLocked[key] = false; });
+      Object.keys(strikes).forEach(function (key) { strikes[key] = 0; });
+      Object.keys(badgeAwarded).forEach(function (key) { badgeAwarded[key] = false; });
+      document.getElementById('studentName').value = '';
+      document.getElementById('debugAnswer').value = '';
+      document.getElementById('timerValue').textContent = formatTime(timeLeft);
+      resetDragMatching();
+      resetAlgorithmOrder();
+      resetAllInteractiveStates();
+      updateBoard();
+    }
+
+    function openConfirmPopup() {
+      document.getElementById('confirmOverlay').classList.remove('hidden');
+    }
+
+    function closeConfirmPopup() {
+      document.getElementById('confirmOverlay').classList.add('hidden');
+    }
+
+    function confirmClearLeaderboard() {
+      localStorage.removeItem('wgltSkillsSprintLeaderboard');
+      renderLeaderboard();
+      closeConfirmPopup();
+      showBadge('🧽 Leaderboard Cleared', 'The saved class scores have been removed from this browser.');
     }
 
     updateBoard();
     document.getElementById('timerValue').textContent = formatTime(timeLeft);
-    document.getElementById('strikeValue').textContent = totalStrikes;
     renderLeaderboard();
     attachDragEvents();
   </script>
